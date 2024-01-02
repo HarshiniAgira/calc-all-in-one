@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULCA</title>
+    <link rel='stylesheet' type='text/css'  href='style.css'>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+            <h1>CalcKit <span>All</span>-in-one</h1>      
+    </header>
+    
+
+    <!-- Main section -->
+    <main>
+        <div class="calculator">
+            <div class="display">
+                <input type="text" id="inputBox"  placeholder="0" >
+            </div>
+            <div class="controls">
+            <div>
+                <button class="operator">AC</button>
+                <button class="operator" >DEL</button>
+                <button class="operator">%</button>
+                <button class="operator">/</button>
+            </div>
+            <div>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button class="operator">*</button>
+            </div>
+            <div>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button class="operator">-</button>
+            </div>
+            <div>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button class="operator">+</button>
+            </div>
+            <div>
+                <button>0</button>
+                <button>.</button>
+                <button class="equal">=</button>
+            </div>
+        </div>
+    </div>
+    </main>
+    <script src="script.js"></script>
+    
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputBox = document.getElementById('inputBox');
+            const buttons = document.querySelectorAll('.controls button');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    handleButtonClick(button.innerText);
+                });
+            });
+
+            function handleButtonClick(value) {
+                switch (value) {
+                    case '=':
+                        calculateResult();
+                        break;
+                    case 'AC':
+                        clearInput();
+                        break;
+                    case 'DEL':
+                        deleteLastCharacter();
+                        break;
+                    default:
+                        updateInput(value);
+                        break;
+                }
+            }
+
+            function calculateResult() {
+                try {
+                    const result = evaluateExpression(inputBox.value);
+                    inputBox.value = result;
+                } catch (error) {
+                    inputBox.value = 'Error';
+                }
+            }
+
+            function clearInput() {
+                inputBox.value = '';
+            }
+
+            function deleteLastCharacter() {
+                inputBox.value = inputBox.value.slice(0, -1);
+            }
+
+            function updateInput(value) {
+                inputBox.value += value;
+            }
+
+            function evaluateExpression(expression) {
+                const tokens = expression.match(/(\d+(\.\d+)?)|([+\-*/%])/g);
+
+                if (!tokens) {
+                    throw new Error('Invalid expression');
+                }
+
+                // Perform multiplication and division first
+                for (let i = 0; i < tokens.length; i++) {
+                    if (tokens[i] === '*' || tokens[i] === '/' || tokens[i] === '%') {
+                        const num1 = parseFloat(tokens[i - 1]);
+                        const num2 = parseFloat(tokens[i + 1]);
+
+                        switch (tokens[i]) {
+                            case '*':
+                                tokens.splice(i - 1, 3, (num1 * num2).toString());
+                                i--;
+                                break;
+                            case '/':
+                                if (num2 !== 0) {
+                                    tokens.splice(i - 1, 3, (num1 / num2).toString());
+                                    i--;
+                                } else {
+                                    throw new Error('Division by zero');
+                                }
+                                break;
+                            case '%':
+                                tokens.splice(i - 1, 3, (num1 % num2).toString());
+                                i--;
+                                break;
+                        }
+                    }
+                }
+
+                // Perform addition and subtraction
+                for (let i = 0; i < tokens.length; i++) {
+                    if (tokens[i] === '+' || tokens[i] === '-') {
+                        const num1 = parseFloat(tokens[i - 1]);
+                        const num2 = parseFloat(tokens[i + 1]);
+
+                        switch (tokens[i]) {
+                            case '+':
+                                tokens.splice(i - 1, 3, (num1 + num2).toString());
+                                i--;
+                                break;
+                            case '-':
+                                tokens.splice(i - 1, 3, (num1 - num2).toString());
+                                i--;
+                                break;
+                        }
+                    }
+                }
+
+                return tokens[0];
+            }
+        });
+    </script> -->
+
+<!-- 
+    footer section -->
+    <footer>
+        <div class="container">
+            <div class="design">
+                <h1>Designed By:Harshini Alagesan</h1>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2><br>
+                <p>Email:harshini.a@agiratech.com</p><br>
+                <p>Phone:+91-9597225321</p>
+            </div>
+        </div>
+    </footer> 
+
+</body>
+</html>
